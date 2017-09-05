@@ -20,6 +20,11 @@ namespace CookingSite.Controllers
             var favorites = db.Favorites.Include(f => f.AspNetUser).Include(f => f.Term);
             return View(favorites.ToList());
         }
+        public ActionResult TermFav()
+        {
+            var favorites = db.Favorites.Include(f => f.AspNetUser).Include(f => f.Term);
+            return View(favorites.ToList());
+        }
 
         // GET: Favorites/Details/5
         public ActionResult Details(int? id)

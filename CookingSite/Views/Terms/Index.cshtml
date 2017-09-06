@@ -75,19 +75,18 @@
         });
 
 </script>
-<div class="container">
-    <div class="col-md-4">
-        <h1>Upload Recipe</h1>
-        <input type="text" id="inputText" />
-        <button id="sendFile">Check Your Recipe</button>
-    </div>
-</div>
+
+        @*Recipe Entry Field*@
+        <textarea id="inputText" class='autoExpand' input type="text" rows='3' data-min-rows='3' title='Paste Recipe Here' placeholder="Paste Recipe Here"></textarea>
+        @*FIND TERMS Button*@
+        <div class="container">
+            <button id="sendFile" class="btn draw-border">FIND TERMS</button>
+        </div>
+   
 <div class="col-md-4" id="UploadedFile">
     
 </div>
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+
 <table class="table">
     <tr>
         <th>
@@ -137,6 +136,11 @@
                         <input class="SetFavBtn" type="button" value="Assign" onclick="AssignButtonClicked(this)" data-assigned-id="@item.TermID" />
                     </div>
 
+                </td>
+                <td>
+                    
+                    @Html.ActionLink("Details", "Details", new { id = item.TermID }) |
+                   
                 </td>
             </tr>
         }

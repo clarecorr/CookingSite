@@ -261,15 +261,21 @@ namespace CookingSite.Controllers
                             from key in db.Terms
                             where key.IsMatch == true
                             select key;
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> 7ce4d44f9ecff55bd728a71885d3ba9cfb68a14e
             foreach (Term key in relaceQuery)
             {
                 if (key.IsMatch == true)
                 {
                     key.IsMatch = false;
                 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 7ce4d44f9ecff55bd728a71885d3ba9cfb68a14e
             }
             db.SaveChanges();
             return new JsonResult();

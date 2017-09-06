@@ -3,38 +3,8 @@
 
 
 
-
-@{
-    ViewBag.Title = "Index";
-}
-
-<h2>Index</h2>
-@*The following script handles input from the text field*@
-<script>
-
-   $(function () {
-        var $inputText = $('#inputText')
-
-       $('#sendFile').on('click', function () {
-            alert('creating object')
-            var postFile = {
-                userInput: $inputText.val(),
-            };
-            $.ajax({
-                type: 'POST',
-                url: "@Url.Action("GetKey")",
-                data: JSON.stringify(postFile),
-                contentType: "application/json; charset=utf-8",
-                success: function (data) { alert(data); window.location.reload(); },
-                error: function () {
-                    alert("error saving input");
-                }
-            });
-        });
-    });
-</script>
 @*This script sets the favoites(move)*@
-@*<script>
+<script>
     var userInput1 = " ";
     var aspId;
 
@@ -49,7 +19,7 @@
 
         $('.SetFavBtn').click(function () {
 
-                
+
                 alert(userInput1)
                 alert(aspId)
                 var postFile = {
@@ -76,7 +46,7 @@
 
 </script>
 @*This script hides the favorit button(move)*@
-@*<script>
+<script>
     var aspName = "@HttpContext.Current.User.Identity.GetUserName()";
     alert(aspName)
 
@@ -89,18 +59,32 @@
             $('.SetFav').hide()
         }
     });
-</script>*@
+</script>
 
-
-        @*Recipe Entry Field*@
-        <textarea id="inputText" class='autoExpand' input type="text" rows='3' data-min-rows='3' title='Paste Recipe Here' placeholder="Paste Recipe Here"></textarea>
-        @*FIND TERMS Button*@
-        <div class="container">
-            <button id="sendFile" class="btn draw-border">FIND TERMS</button>
-        </div>
-   @Html.Partial("View")
-@*<div class="col-md-4" id="UploadedFile">
+<script>
+   
+    //$.get("/Term/MakeFalse", null, function () {
+    //    alert("they false")
+    //});
+    var postFile = {
+        userInput1: userInput1,
+        aspId: aspId
+    }
+    $.ajax({
+        type: 'POST',
+        url: "@Url.Action("MakeFalse")",
+        data: JSON.stringify(postFile),
+        contentType: "application/json; charset=utf-8",  
+    success: function (data) {},
+    error: function () {
+        
+    }
+    });
     
+</script>
+
+<div class="col-md-4" id="UploadedFile">
+
 </div>
 
 <table class="table">
@@ -133,10 +117,10 @@
 
             <tr>
                 <td>
-                    @Html.DisplayFor(modelItem => item.TermDef )
+                    @Html.DisplayFor(modelItem => item.TermDef)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.TermInfo )
+                    @Html.DisplayFor(modelItem => item.TermInfo)
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.TermVideo)
@@ -154,11 +138,11 @@
 
                 </td>
                 <td>
-                    
+
                     @Html.ActionLink("Details", "Details", new { id = item.TermID }) |
-                   
+
                 </td>
             </tr>
         }
     }
-</table>*@
+</table>

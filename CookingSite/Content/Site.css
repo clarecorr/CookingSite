@@ -46,6 +46,12 @@ textarea {
     color: white !important;
     font-size: 3em;
 }
+.navbar-fav {
+    font-family: 'Abril Fatface', cursive;
+    color: white !important;
+    font-size: 2em;
+    margin-right:10px;
+}
 a#registerLink {
     color: white;
 }
